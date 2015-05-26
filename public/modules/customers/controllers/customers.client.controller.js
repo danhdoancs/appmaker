@@ -91,6 +91,14 @@ customerModule.controller('CustomersController', ['$scope', '$stateParams', '$lo
 
 customerModule.controller('CustomersCreateController', ['$scope', 'Customers', 'Notify',
     function ($scope, Customers, Notify) {
+
+        //channel options
+        this.channelOptions = [
+            'Facebook',
+            'Twitter',
+            'Email'
+        ];
+
         // Create new Customer
         this.create = function () {
             // Create new Customer object
@@ -102,15 +110,15 @@ customerModule.controller('CustomersCreateController', ['$scope', 'Customers', '
                 industry: this.industry,
                 email: this.email,
                 phone: this.phone,
-                referred: this.reffered,
+                referred: this.referred,
                 channel: this.channel
             });
 
             // Redirect after save
             customer.$save(function (response) {
 
-            Notify.sendMsg('NewCustomer', {'id':response._id});
-            
+                Notify.sendMsg('NewCustomer', {'id': response._id});
+
             }, function (errorResponse) {
                 $scope.error = errorResponse.data.message;
             });
@@ -127,7 +135,7 @@ customerModule.controller('CustomersEditController', ['$scope', 'Customers',
             'Twitter',
             'Email'
         ];
-        
+
         // Update existing Customer
         this.update = function (customer) {
 
@@ -147,7 +155,7 @@ customerModule.directive('customerList', ['Customers', 'Notify', function (Custo
             link: function (scope, element, attrs) {
 
                 //when a new customer is added, update the customer list
-                Notify.getMsg('NewCustomer', function(event, data) {
+                Notify.getMsg('NewCustomer', function (event, data) {
                     scope.customersCtrl.customers = Customers.query();
                 });
             }

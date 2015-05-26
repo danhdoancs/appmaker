@@ -12,10 +12,10 @@
                             <strong data-ng-bind="error"></strong>
                         </div>
                     </div>
-                    
+
                     <div class="col-sm-6 text-center">
                         <i class="glyphicon glyphicon-user custProfile" 
-                           ng-class="{'text-primary': customersCreateCtrl.reffered, 'text-pink': !customersCreateCtrl.reffered}"></i>
+                           ng-class="{'text-primary': customersCreateCtrl.referred, 'text-pink': !customersCreateCtrl.referred}"></i>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
@@ -74,7 +74,9 @@
                         <div class="form-group">
                             <label class="control-label" for="channel">Channel</label>
                             <div class="controls">
-                                <input type="text" ng-model="customersCreateCtrl.channel" id="channel" class="form-control" placeholder="Channel">
+                                <select ng-model="customersCreateCtrl.channel" id="channel" class="form-control" ng-options="channelItem for channelItem in customersCreateCtrl.channelOptions">
+                                    <option value="">-- choose channel --</option>
+                                </select> 
                             </div>
                         </div>
                     </div>
@@ -94,7 +96,7 @@
     </div>
 
     <div class="modal-footer form-group">
-        <button class="btn btn-success btn-lg" ng-click="customersCreateCtrl.create();ok()" ng-disabled="form.customerCreateForm.$invalid">Create</button>
+        <button class="btn btn-success btn-lg" ng-click="customersCreateCtrl.create(); ok()" ng-disabled="form.customerCreateForm.$invalid">Create</button>
         <button class="btn btn-warning btn-lg" ng-click="cancel()">Cancel</button>
     </div>
 </section>
