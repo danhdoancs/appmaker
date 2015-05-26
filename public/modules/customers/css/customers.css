@@ -1,0 +1,35 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 23, 2015, 2:53:24 PM
+    Author     : david
+*/
+
+.custProfile {
+    font-size: 250px;
+}
+
+.custList {
+    font-size: 150px;
+}
+
+.checkboxLeft {
+    width: 10%;
+    text-align: left;
+}
+
+.text-pink {
+    color: #ec407a;
+}
+
+.extra-space {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+input[type='radio'], input[type="checkbox"] {
+    margin: 0px 0px 0px 0px;
+}
