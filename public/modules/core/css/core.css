@@ -22,3 +22,8 @@ body.ng-cloak
 body {
     background-color: #EEEEEE;
 }
+
+footer {
+    margin-top: 50px;
+    /*border-top: 1px solid black;*/
+}
